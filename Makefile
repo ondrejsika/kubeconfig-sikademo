@@ -1,5 +1,5 @@
 update-config:
 	(cd .. && make save-config)
-	cp ../kubeconfig.yml ./kubeconfig
-	git commit -m "[auto] Update kubeconfig" kubeconfig
+	cat ../kubeconfig.yml | base64 > ./kubeconfig
+	git commit -m "[auto] Update kubeconfig (base64)" kubeconfig
 	git push
